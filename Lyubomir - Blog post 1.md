@@ -43,3 +43,6 @@ After getting the AI working, I added **more obstacles, enemies, and an addition
 For a first project, **Roll-a-Ball** was a solid introduction to Unity. The challenges I encountered were relatively minor, and most issues took no more than **15 minutes to troubleshoot**. However, I found that the **general coding practices in the tutorial were not ideal**—it relied on some **bad habits**, and I believe a beginner-focused tutorial should emphasize **clean, maintainable code** from the start. Despite that, it was a fun learning experience, and the extra features I added made the project feel much more engaging.
 
 Moving forward, I’ll continue refining my Unity skills while incorporating **better coding practices** to ensure my projects remain scalable and well-structured.
+
+## Screenshot of the game
+![image](https://github.com/user-attachments/assets/72652872-f42f-40ae-ba1c-c0530e42e3f1)
