@@ -9,6 +9,7 @@ This repository contains all the project files for the GMD1 project, as well as 
 
 [Lyubomir's Blog](<Lyubomir - Blog post 1.md>)
 
+## Game design document
 [Game design document](<Game design document.md>)
 # Bibliography of used resources
 Optionally, a link to a playable WebGL build of your game, hosted on GitHub Pages
