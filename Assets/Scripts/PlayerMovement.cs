@@ -60,7 +60,7 @@ public class ShipMovement : MonoBehaviour
 
     void ApplyThrust()
     {
-        if (Input.GetKey("joystick button 0") || Input.GetMouseButton(0)) //TODO Check this against the arcade machine.
+        if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetMouseButton(0)) //TODO Check this against the arcade machine.
         {
             rigidBody.linearVelocity += thrustPower * Time.fixedDeltaTime * (Vector2)transform.up;
         }
