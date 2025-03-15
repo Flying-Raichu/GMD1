@@ -1,13 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
 {
-    public float thrustPower = 5f;
-    public float rotationSpeed = 5f;
-    public float dragFactor = 0.99f;
+    [SerializeField] private float thrustPower = 5f;
+    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float dragFactor = 0.99f;
 
     private Rigidbody2D rigidBody;
-    private bool usingMouse = true;
 
     void Start()
     {
@@ -17,13 +17,15 @@ public class ShipMovement : MonoBehaviour
 
     void Update()
     {
-        DetectInputMethod();
-
-        if (usingMouse)
-            RotateTowardsMouse();
-        else
+        if (Gamepad.current != null && InputManager.instance.GetMovement() != Vector2.zero) //if joystick has force applied
+        {
             RotateWithController();
-
+        }
+        else
+        {
+            RotateTowardsMouse();
+        }
+        
         CheckScreenBounds();
     }
 
@@ -35,7 +37,7 @@ public class ShipMovement : MonoBehaviour
 
     void RotateTowardsMouse()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(InputManager.instance.GetMousePosition());
         mousePosition.z = 0f;
 
         Vector3 direction = (mousePosition - transform.position).normalized;
@@ -46,21 +48,16 @@ public class ShipMovement : MonoBehaviour
 
     void RotateWithController()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+        Vector2 input = InputManager.instance.GetMovement();
+        
+        float targetAngle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg - 90f;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), rotationSpeed * Time.deltaTime);
 
-        if (moveX != 0 || moveY != 0)
-        {
-            Vector3 direction = new Vector3(moveX, moveY, 0).normalized;
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), rotationSpeed * Time.deltaTime);
-        }
     }
 
     void ApplyThrust()
     {
-        if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetMouseButton(0)) //TODO Check this against the arcade machine.
+        if (InputManager.instance.APressed()) //TODO Check this against the arcade machine.
         {
             rigidBody.linearVelocity += thrustPower * Time.fixedDeltaTime * (Vector2)transform.up;
         }
@@ -71,18 +68,6 @@ public class ShipMovement : MonoBehaviour
         if (rigidBody.linearVelocity.magnitude > 0.01f)
         {
             rigidBody.linearVelocity *= dragFactor;
-        }
-    }
-
-    void DetectInputMethod()
-    {
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f || Mathf.Abs(Input.GetAxis("Vertical")) > 0.1f)
-        {
-            usingMouse = false;
-        }
-        if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
-        {
-            usingMouse = true;
         }
     }
 
