@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystemPrefab;
     public GameObject cameraPrefab;
     public GameObject lightPrefab;
+    public GameObject enemyManagerPrefab;
 
     private Vector2 storedVelocity;
     private GameObject playerInstance;
@@ -31,6 +32,13 @@ public class GameManager : MonoBehaviour
         SpawnCamera();
         SpawnPlayer();
         EnsureEventSystem();
+
+        if (enemyManagerPrefab != null && FindFirstObjectByType<EnemyManager>() == null)
+        {
+            Instantiate(enemyManagerPrefab);
+            Debug.Log("EnemyManager instantiated.");
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        }
     }
 
     void Update()
@@ -71,6 +79,7 @@ public class GameManager : MonoBehaviour
         if (playerPrefab != null)
         {
             playerInstance = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            playerInstance.layer = LayerMask.NameToLayer("Player");
         }
     }
 
@@ -123,5 +132,10 @@ public class GameManager : MonoBehaviour
         {
             pauseMenuInstance.SetActive(false);
         }
+    }
+
+    public GameObject GetPlayerInstance()
+    {
+        return playerInstance;
     }
 }

@@ -201,6 +201,7 @@ MonoBehaviour:
   eventSystemPrefab: {fileID: 8951396569886220778, guid: 992a1f90a93e55045b9b1e5d816372fe, type: 3}
   cameraPrefab: {fileID: 6004829918134009372, guid: 75e632722bbd34643b24076ae70f2e4d, type: 3}
   lightPrefab: {fileID: 6917234534326033318, guid: 2a316a8db1ea6614583362425ba8fd96, type: 3}
+  enemyManagerPrefab: {fileID: 2006754144932659036, guid: 0e60bc3659f1a394f94f0f4f4d4802ff, type: 3}
 --- !u!1 &1492825419
 GameObject:
   m_ObjectHideFlags: 0
