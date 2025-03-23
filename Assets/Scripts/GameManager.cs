@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     //TODO We need to further divide this, it's a bit too much already and it's just 2 features
+    // TODO: private SerializeField
     public static GameManager instance;
 
     public GameObject playerPrefab;
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystemPrefab;
     public GameObject cameraPrefab;
     public GameObject lightPrefab;
+    public GameObject asteroidSpawnerPrefab;
+    public GameObject mainMenuPrefab;
 
     private Vector2 storedVelocity;
     private GameObject playerInstance;
@@ -31,6 +34,8 @@ public class GameManager : MonoBehaviour
         SpawnCamera();
         SpawnPlayer();
         EnsureEventSystem();
+        SpawnAsteroidSpawner();
+        SpawnMainUI();
     }
 
     void Update()
@@ -71,6 +76,22 @@ public class GameManager : MonoBehaviour
         if (playerPrefab != null)
         {
             playerInstance = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        }
+    }
+
+    public void SpawnAsteroidSpawner()
+    {
+        if (asteroidSpawnerPrefab != null)
+        {
+            asteroidSpawnerPrefab = Instantiate(asteroidSpawnerPrefab);
+        }
+    }
+
+    public void SpawnMainUI()
+    {
+        if (mainMenuPrefab != null)
+        {
+            mainMenuPrefab = Instantiate(mainMenuPrefab);
         }
     }
 
