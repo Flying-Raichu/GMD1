@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 979650081978033105}
   - component: {fileID: 1811126888056944618}
   - component: {fileID: -2329089297977664027}
-  - component: {fileID: 9007236144550582551}
+  - component: {fileID: -2183186945734461251}
   m_Layer: 0
   m_Name: Debris
   m_TagString: Untagged
@@ -158,7 +158,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!212 &9007236144550582551
+--- !u!212 &-2183186945734461251
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
