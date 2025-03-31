@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenuPrefab;
     public GameObject eventSystemPrefab;
     public GameObject cameraPrefab;
+    public GameObject bgPrefab;
     public GameObject lightPrefab;
     public GameObject asteroidSpawnerPrefab;
     public GameObject mainMenuPrefab;
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SpawnMainUI();
         SpawnLightSource();
         SpawnCamera();
+        SpawnBackground();
         SpawnPlayer();
         EnsureEventSystem();
         SpawnAsteroidSpawner();
-        SpawnMainUI();
     }
 
     void Update()
@@ -63,11 +65,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SpawnBackground()
+    {
+        if (bgPrefab != null)
+        {
+            GameObject bgObject = Instantiate(bgPrefab);
+            Canvas bgCanvas = bgObject.GetComponent<Canvas>();
+            if (bgCanvas != null)
+            {
+                Camera sceneCamera = FindFirstObjectByType<Camera>();
+                if (sceneCamera != null)
+                {
+                    bgCanvas.worldCamera = sceneCamera;
+                }
+                else
+                {
+                    Debug.LogError("No camera found in the scene to assign.");
+                }
+            }
+            
+        }
+    }
+
     public void SpawnCamera()
     {
         if (FindFirstObjectByType<Camera>() == null) 
         {
-            Instantiate(cameraPrefab);
+            GameObject camera = Instantiate(cameraPrefab);
+            
         }
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7176386524008898415}
   - component: {fileID: 7532478609734220361}
   - component: {fileID: 6704325116863854789}
+  - component: {fileID: -3171714430383743385}
   m_Layer: 5
   m_Name: MainUICanvas
   m_TagString: Untagged
@@ -48,7 +49,7 @@ Canvas:
   m_GameObject: {fileID: 4431500617772808087}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -102,6 +103,14 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!222 &-3171714430383743385
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431500617772808087}
+  m_CullTransparentMesh: 1
 --- !u!1 &6919717617584227906
 GameObject:
   m_ObjectHideFlags: 0

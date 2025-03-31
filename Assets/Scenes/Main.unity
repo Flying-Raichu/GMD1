@@ -279,6 +279,7 @@ MonoBehaviour:
   pauseMenuPrefab: {fileID: 1790597136620587178, guid: 9f482f031f71ff84699d21bfa76c9b62, type: 3}
   eventSystemPrefab: {fileID: 8951396569886220778, guid: 992a1f90a93e55045b9b1e5d816372fe, type: 3}
   cameraPrefab: {fileID: 6004829918134009372, guid: 75e632722bbd34643b24076ae70f2e4d, type: 3}
+  bgPrefab: {fileID: 7605741417815684038, guid: b6b1b510d9928b149b8e961750738764, type: 3}
   lightPrefab: {fileID: 6917234534326033318, guid: 2a316a8db1ea6614583362425ba8fd96, type: 3}
   asteroidSpawnerPrefab: {fileID: 7224334476467199772, guid: db305ce40e54b2e4ca6078b044589655, type: 3}
   mainMenuPrefab: {fileID: 4431500617772808087, guid: 54d4f45ab6720c84f933144a95198425, type: 3}
