@@ -7,6 +7,8 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float dragFactor = 0.99f;
 
+    public float forceMultiplier = 5f;
+
     private Rigidbody2D rigidBody;
 
     void Start()
@@ -57,7 +59,7 @@ public class ShipMovement : MonoBehaviour
 
     void ApplyThrust()
     {
-        if (InputManager.instance.APressed()) //TODO Check this against the arcade machine.
+        if (InputManager.instance.APressed())
         {
             rigidBody.linearVelocity += thrustPower * Time.fixedDeltaTime * (Vector2)transform.up;
         }
@@ -96,5 +98,39 @@ public class ShipMovement : MonoBehaviour
             newPosition.y = screenBottom - shipHeight * 0.8f;
 
         transform.position = newPosition;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (collision.gameObject.TryGetComponent<Rigidbody2D>(out var enemyRb))
+            {
+                ApplyPhysicsForces(rigidBody, enemyRb, collision);
+                Debug.Log("Newtonian collision applied!");
+            }
+        }
+    }
+
+    void ApplyPhysicsForces(Rigidbody2D rb1, Rigidbody2D rb2, Collision2D collision)
+    {
+        float m1 = rb1.mass;
+        float m2 = rb2.mass;
+
+        Vector2 impactDirection = (rb1.position - rb2.position).normalized;
+        Vector2 relativeVelocity = rb1.linearVelocity - rb2.linearVelocity;
+
+        Vector2 forceOnPlayer = (m2 / (m1 + m2)) * forceMultiplier * relativeVelocity.magnitude * impactDirection;
+        Vector2 forceOnEnemy = (m1 / (m1 + m2)) * forceMultiplier * relativeVelocity.magnitude * -impactDirection;
+
+        float maxForce = 10f;
+        forceOnPlayer = Vector2.ClampMagnitude(forceOnPlayer, maxForce);
+        forceOnEnemy = Vector2.ClampMagnitude(forceOnEnemy, maxForce);
+
+        // Apply force
+        rb1.AddForce(forceOnPlayer, ForceMode2D.Impulse);
+        rb2.AddForce(forceOnEnemy, ForceMode2D.Impulse);
+
+        Debug.Log($"Forces applied: Player {forceOnPlayer}, Enemy {forceOnEnemy}");
     }
 }
