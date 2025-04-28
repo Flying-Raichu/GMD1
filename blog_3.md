@@ -1,0 +1,15 @@
+# Blog 3
+
+We've been able to achieve a few things:
+- Player + runtime instantiation of most components
+    We started with this before we had our architecture class, so it started with one big GameManager class that contains methods with all of the prefabs that we needed to instantiate. This made it so that GameManager was one of the very few things we needed to place in the scene at the start, so that from then on, adding prefabs would be easier to deal with when it came to merge conflicts and working in parallel on different features.
+- Movement (including wrapping along screen borders when going out of view)
+    The player sprite moves with some momentum in the direction they want to go. Unlike typical controls, the player has to use the joystick to turn and a thrust input to actually move. This makes it so that the player can drift as they fly so they can take more strategic positions. Once the player hits the boundaries of the screen, the player is transported to the opposite side of the screen, retaining their momentum.
+- Mapping to arcade machine inputs
+    Again, we started work on this before we got a mapping to the XBox controller, so we started with basic controls for the mouse and keyboard. Once we got the XBox controller scheme, we modified it so that in addition to the game controls, the same controls map to keyboard and mouse as well so that we can test features on our own machines and hook it up to the machine later to check that things are still working correctly. The controls were initially located in the GameManager class, but we moved the controls to their own dedicated InputManager class.
+- A generic weapon, plus the ability to fire + a firing sound
+    It's not really a weapon so much as the actual ability to fire from the player - the player never actually sees the weapon, but depending on the game object type (hopefully implemented in the future), it will change the type of ammunition and how much damage it deals. It's a prefab attached to the player, and when the input is pressed, the player either fires a single shot, or multiple shots at a constant rate if they're holding the input down. The ammo has a steady velocity across the screen, and the instance despawns once it goes off screen or if it collides with something. There is an audio source attached to the player that plays the sound of the shot firing.
+- A score ticker
+    Considering we don't have enemies or powerups yet, there's no logic to contribute special values to the score, but since this is a roguelike, survival is already a sort of contribution. We set a static value that gets added to the overall score based on time elapsed in the game, along with some UI text that is displayed in the corner. Once other features are implemented, the intent is to add other values to the score.
+- Play/Pause/Quit menu
+    This was just to make it easier to exit the game on the arcade machine, or pause the game if needed. It works by setting the time scale to 0. All movement freezes while the game is paused, so that includes asteroids + any debris, the player, and the score ticker.
