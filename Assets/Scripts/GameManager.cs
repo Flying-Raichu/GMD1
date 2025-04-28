@@ -4,13 +4,17 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     //TODO We need to further divide this, it's a bit too much already and it's just 2 features
+    // TODO: private SerializeField
     public static GameManager instance;
 
     public GameObject playerPrefab;
     public GameObject pauseMenuPrefab;
     public GameObject eventSystemPrefab;
     public GameObject cameraPrefab;
+    public GameObject bgPrefab;
     public GameObject lightPrefab;
+    public GameObject asteroidSpawnerPrefab;
+    public GameObject mainMenuPrefab;
     public GameObject enemyManagerPrefab;
 
     private Vector2 storedVelocity;
@@ -28,10 +32,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SpawnMainUI();
         SpawnLightSource();
         SpawnCamera();
+        SpawnBackground();
         SpawnPlayer();
         EnsureEventSystem();
+        SpawnAsteroidSpawner();
 
         if (enemyManagerPrefab != null && FindFirstObjectByType<EnemyManager>() == null)
         {
@@ -66,11 +73,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SpawnBackground()
+    {
+        if (bgPrefab != null)
+        {
+            GameObject bgObject = Instantiate(bgPrefab);
+            Canvas bgCanvas = bgObject.GetComponent<Canvas>();
+            if (bgCanvas != null)
+            {
+                Camera sceneCamera = FindFirstObjectByType<Camera>();
+                if (sceneCamera != null)
+                {
+                    bgCanvas.worldCamera = sceneCamera;
+                }
+                else
+                {
+                    Debug.LogError("No camera found in the scene to assign.");
+                }
+            }
+            
+        }
+    }
+
     public void SpawnCamera()
     {
         if (FindFirstObjectByType<Camera>() == null) 
         {
-            Instantiate(cameraPrefab);
+            GameObject camera = Instantiate(cameraPrefab);
+            
         }
     }
 
@@ -80,6 +110,22 @@ public class GameManager : MonoBehaviour
         {
             playerInstance = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
             playerInstance.layer = LayerMask.NameToLayer("Player");
+        }
+    }
+
+    public void SpawnAsteroidSpawner()
+    {
+        if (asteroidSpawnerPrefab != null)
+        {
+            asteroidSpawnerPrefab = Instantiate(asteroidSpawnerPrefab);
+        }
+    }
+
+    public void SpawnMainUI()
+    {
+        if (mainMenuPrefab != null)
+        {
+            mainMenuPrefab = Instantiate(mainMenuPrefab);
         }
     }
 
