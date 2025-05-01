@@ -186,3 +186,4 @@ MonoBehaviour:
   equippedWeapon: {fileID: 11400000, guid: 09c28d881bf38cd48be3d9ba75f9f741, type: 2}
   firePoint: {fileID: 5251237649776754379}
   soundSource: {fileID: 0}
+  shooter: {fileID: 8970014383502377528}

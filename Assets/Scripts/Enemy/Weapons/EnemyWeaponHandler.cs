@@ -40,6 +40,8 @@ public class EnemyWeaponHandler : MonoBehaviour
             firePoint.rotation = Quaternion.Euler(0, 0, angle);
 
             GameObject projectile = Instantiate(equippedWeapon.ProjectilePrefab, firePoint.position, firePoint.rotation);
+            Projectile obj = projectile.GetComponent<Projectile>();
+            obj.shooter = gameObject;
             
             if (projectile.TryGetComponent<Rigidbody2D>(out var rb))
             {
