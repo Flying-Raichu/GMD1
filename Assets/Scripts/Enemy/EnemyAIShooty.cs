@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.instance.GetPlayerInstance() != null)
+        if (GameManager.instance.GetPlayerInstance()!= null)
         {
             player = GameManager.instance.GetPlayerInstance().transform;
         }

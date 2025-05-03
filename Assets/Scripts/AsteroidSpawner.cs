@@ -1,17 +1,25 @@
+using Spawn;
 using UnityEngine;
 
-public class AsteroidSpawner : MonoBehaviour
+public class AsteroidSpawner : MonoBehaviour, ISpawnable
 {
     [SerializeField] private GameObject asteroidPrefab;
+    [SerializeField] private string objName = "AsteroidSpawner";
     [SerializeField] private float spawnRate = 5f; //time in seconds
     private float screenWidth, screenHeight;
     
+    public string Name { get => objName; set => objName = value; }
+    
+    public void Initialize()
+    {
+        gameObject.name = "AsteroidSpawner";
+        SetSpawnBoundary();
+    }
+    
     void Awake()
     {
-        // gives delay of 10 seconds for player to get their bearings
-        SetSpawnBoundary();
-        InvokeRepeating(nameof(SpawnAsteroid), 0f, spawnRate);
-        Debug.Log("Instantiated");
+        // gives delay of a few seconds for player to get their bearings
+        InvokeRepeating(nameof(SpawnAsteroid), 5f, spawnRate);
     }
 
     void SetSpawnBoundary()

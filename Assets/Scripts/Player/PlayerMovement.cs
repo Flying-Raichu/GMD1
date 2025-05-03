@@ -1,7 +1,8 @@
+using Spawn;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShipMovement : MonoBehaviour
+public class ShipMovement : MonoBehaviour, ISpawnable
 {
     [SerializeField] private float thrustPower = 5f;
     [SerializeField] private float rotationSpeed = 5f;
@@ -10,6 +11,15 @@ public class ShipMovement : MonoBehaviour
     public float forceMultiplier = 5f;
 
     private Rigidbody2D rigidBody;
+    
+    [SerializeField] private string objName = "Player";
+
+    public string Name { get => objName; set => objName = value; }
+
+    public void Initialize()
+    {
+        gameObject.name = "Player";
+    }
 
     void Start()
     {
@@ -127,7 +137,7 @@ public class ShipMovement : MonoBehaviour
         forceOnPlayer = Vector2.ClampMagnitude(forceOnPlayer, maxForce);
         forceOnEnemy = Vector2.ClampMagnitude(forceOnEnemy, maxForce);
 
-        // Apply force
+        // apply force
         rb1.AddForce(forceOnPlayer, ForceMode2D.Impulse);
         rb2.AddForce(forceOnEnemy, ForceMode2D.Impulse);
 

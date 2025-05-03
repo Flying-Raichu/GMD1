@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
         if (GameManager.instance != null)
         {
             Debug.Log("Resume button clicked!");
-            GameManager.instance.TogglePause();
+            PauseManager.instance.TogglePause();
         }
     }
 
