@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public GameObject shooter;
+    
     // Update is called once per frame
     void Update()
     {

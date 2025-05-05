@@ -1,10 +1,20 @@
+using Spawn;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour, ISpawnable
 {
     public GameObject enemyPrefab;
     public int enemyCount = 5;
     public float spawnRadius = 6f;
+    [SerializeField] private string objName = "EnemyManager";
+    
+    public string Name { get => objName; set => objName = value; }
+    
+    public void Initialize()
+    {
+        gameObject.name = "EnemyManager";
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+    }
 
     void Start()
     {
