@@ -6,3 +6,5 @@ Some more updates:
 - Enemy spawn and pathing
 - Randomly spawning asteroids that float across the screen, which get broken up into 3 pieces of debris when shot or colliding with other game objects
     We initially wanted to include assets from the asset store, but considering the style of the game and its 2D elements, nothing seemed to really fit, so we made our own assets. Asteroids spawn at random along the borders of the screen as varying velocities and rotations. They don't interact with the player yet, but they despawn if they drift off-screen and break up into 3 pieces with varying velocities when hit with ammunition, and emit a crumbling sound effect when destroyed. We initially tried making the original asteroid the sound source, but upon destroying the game object in order to instantiate the debris, we discovered that the sound doesn't play fully since the game object is destroyed, so instead, we made the sound quieter and attached the sound source to the debris.
+
+Inspiration for shield implementation - https://www.youtube.com/watch?v=0tDPxNB2JNs
