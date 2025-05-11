@@ -3,8 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject shooter;
+    public float damage;
     
-    // Update is called once per frame
     void Update()
     {
         if (IsOffScreen())
@@ -21,6 +21,13 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject == shooter) return;
+
+        if (collision.gameObject.CompareTag("Player") &&
+            collision.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+        {
+            playerHealth.ApplyDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
