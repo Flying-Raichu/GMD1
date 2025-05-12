@@ -12,18 +12,17 @@ public class PlayerHealth : MonoBehaviour
 
     private System.Collections.IEnumerator WaitAndAssignBars()
     {
-        while (shieldUI == null && healthUI == null)
+        while (shieldUI == null || healthUI == null)
         {
             shieldUI = FindFirstObjectByType<Player.Shield>();
             healthUI = FindFirstObjectByType<Player.Health>();
 
-            if (shieldUI != null && healthUI != null)
-            {
-                Debug.Log("Bar UI successfully assigned to PlayerHealth.");
-                yield break;
-            }
-
             yield return null;
+        }
+
+        if (shieldUI != null && healthUI != null)
+        {
+            Debug.Log("Bar UI successfully assigned to PlayerHealth.");
         }
     }
 
@@ -37,6 +36,16 @@ public class PlayerHealth : MonoBehaviour
             }
 
             else healthUI.TakeDamage(damage);
+
+            if (healthUI.health <= 0)
+            {
+                Destroy(gameObject);
+
+                var gameOverManager = FindFirstObjectByType<GameOverManager>();
+
+                gameOverManager.TriggerGameOver();
+            }
+
         }
         else
         {
