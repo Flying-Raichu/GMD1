@@ -6,15 +6,10 @@ namespace Spawn
     {
         [SerializeField] private GameObject lightPrefab;
 
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
-            if (FindFirstObjectByType<Light>() == null)
-            {
-                GameObject mainLight = Instantiate(lightPrefab);
-                return mainLight.GetComponent<ISpawnable>();
-            }
-
-            return null;
+            GameObject mainLight = Instantiate(lightPrefab);
+            return mainLight;
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Spawn;
 using UnityEngine;
@@ -6,8 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    [SerializeField] 
-    private SpawnFactory[] factories;
+    [SerializeField] private SpawnFactory[] factories;
     private List<GameObject> createdPrefabs = new List<GameObject>();
     public GameObject playerInstance;
 
@@ -20,18 +20,27 @@ public class GameManager : MonoBehaviour
     {
         foreach (SpawnFactory s in factories)
         {
-            ISpawnable spawnable = s.GetSpawnable();
-            if (spawnable is Component component)
+            GameObject spawnable = s.GetSpawnable();
+            createdPrefabs.Add(spawnable);
+            
+            if (instance.CompareTag("Player"))
             {
-                createdPrefabs.Add(component.gameObject);
-                
-                if (instance.CompareTag("Player"))
-                {
-                    playerInstance = instance.gameObject;
-                    PauseManager.instance.Initialize(playerInstance);
-                }
+                playerInstance = instance.gameObject;
+                PauseManager.instance.Initialize(playerInstance);
             }
+            
+            Debug.Log("added component " + spawnable.name);
         }
+    }
+    
+    public T GetComponentInPrefab<T>() where T : Component
+    {
+        foreach (var prefab in createdPrefabs)
+        {
+            T comp = prefab.GetComponentInChildren<T>(true); // true = include inactive
+            if (comp != null) return comp;
+        }
+        return null;
     }
 
     public GameObject GetPlayerInstance()

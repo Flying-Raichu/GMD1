@@ -6,10 +6,10 @@ namespace Spawn
     {
         [SerializeField] private GameObject eventSystemPrefab;
 
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject eventSystem = Instantiate(eventSystemPrefab);
-            return eventSystem.GetComponent<ISpawnable>();
+            return eventSystem;
         }
     }
 }

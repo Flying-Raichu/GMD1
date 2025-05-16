@@ -6,10 +6,10 @@ namespace Spawn
     {
         [SerializeField] private GameObject mainMenuPrefab;
 
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject ui = Instantiate(mainMenuPrefab);
-            return ui.GetComponent<ISpawnable>();
+            return ui;
         }
     }
 }
