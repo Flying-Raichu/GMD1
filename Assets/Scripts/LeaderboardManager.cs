@@ -33,13 +33,13 @@ public class LeaderboardManager : MonoBehaviour
         SaveLeaderboard();
     }
 
-    public void SaveLeaderboard()
+    private void SaveLeaderboard()
     {
         var data = new LeaderboardData { scores = leaderboard };
         File.WriteAllText(SavePath, JsonUtility.ToJson(data));
     }
 
-    public void LoadLeaderboard()
+    private void LoadLeaderboard()
     {
         if (File.Exists(SavePath))
         {

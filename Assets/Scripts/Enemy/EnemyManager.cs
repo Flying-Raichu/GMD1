@@ -1,12 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using Spawn;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour, ISpawnable
 {
-    public GameObject enemyPrefab;
-    public int enemyCount = 5;
-    public float spawnRadius = 6f;
+    [SerializeField] public GameObject enemyPrefab;
+    [SerializeField] private int enemyCount = 5;
     [SerializeField] private string objName = "EnemyManager";
+    [SerializeField] private float waveDelay = 5f;
+    private bool waveInProgress = false;
+    
+    private int currentWave = 1;
+    private List<GameObject> activeEnemies = new List<GameObject>();
+    public static event System.Action<int> OnWaveStarted;
     
     public string Name { get => objName; set => objName = value; }
     
@@ -18,17 +25,37 @@ public class EnemyManager : MonoBehaviour, ISpawnable
 
     void Start()
     {
-        SpawnEnemies();
+        waveInProgress = true;
+        StartCoroutine(SpawnWave());
     }
-
-    void SpawnEnemies()
+    
+    void Update()
     {
+        activeEnemies.RemoveAll(enemy => enemy == null);
+
+        if (activeEnemies.Count == 0 && !waveInProgress)
+        {
+            waveInProgress = true;
+            StartCoroutine(SpawnWave());
+        }
+    }
+    
+    IEnumerator SpawnWave()
+    {
+        OnWaveStarted?.Invoke(currentWave);
+        yield return new WaitForSeconds(waveDelay);
+
+        enemyCount += currentWave + 1;
         for (int i = 0; i < enemyCount; i++)
         {
             var spawnPosition = GetRandomCornerPosition();
             GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             enemy.layer = LayerMask.NameToLayer("Enemy");
+            activeEnemies.Add(enemy);
         }
+
+        currentWave++;
+        waveInProgress = false;
     }
 
     Vector3 GetRandomCornerPosition()
