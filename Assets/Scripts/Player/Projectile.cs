@@ -29,5 +29,12 @@ public class Projectile : MonoBehaviour
             playerHealth.ApplyDamage(damage);
             Destroy(gameObject);
         }
+
+        else if (collision.gameObject.CompareTag("Enemy") &&
+         collision.gameObject.TryGetComponent<EnemyHealth>(out var enemyHealth))
+        {
+            enemyHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }
