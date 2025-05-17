@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4989170843346815710}
   - component: {fileID: 1453113139694132177}
   - component: {fileID: -1298967166078958699}
+  - component: {fileID: 4578838831485462066}
   m_Layer: 8
   m_Name: ShootyEnemy
   m_TagString: Enemy
@@ -186,3 +187,16 @@ MonoBehaviour:
   equippedWeapon: {fileID: 11400000, guid: 09c28d881bf38cd48be3d9ba75f9f741, type: 2}
   firePoint: {fileID: 5251237649776754379}
   soundSource: {fileID: 0}
+--- !u!114 &4578838831485462066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970014383502377528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52932677d8c5364689d931f2cee7cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100

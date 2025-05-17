@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 0}
+  damage: 50
 --- !u!58 &-7917735498545898764
 CircleCollider2D:
   m_ObjectHideFlags: 0
