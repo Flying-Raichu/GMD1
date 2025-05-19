@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
-    private int score = 0;
+    private int score;
 
     void Start()
     {
@@ -21,10 +21,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int points) // public so that other scripts can access it
+    public void AddScore(int points)
     {
         score += points;
         UpdateScoreText();
+    }
+    
+    public int GetScore()
+    {
+        return score;
     }
     
     void UpdateScoreText()

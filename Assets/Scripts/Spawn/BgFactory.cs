@@ -6,7 +6,7 @@ namespace Spawn
     {
         [SerializeField] private GameObject bgPrefab;
 
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject bg = Instantiate(bgPrefab);
             Canvas canvas = bg.GetComponent<Canvas>();
@@ -14,7 +14,7 @@ namespace Spawn
             if (canvas != null && cam != null)
                 canvas.worldCamera = cam;
 
-            return bg.GetComponent<ISpawnable>();
+            return bg;
         }
     }
 }

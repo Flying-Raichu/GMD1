@@ -6,12 +6,12 @@ namespace Spawn
     {
         [SerializeField] private GameObject playerPrefab;
 
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject playerInstance = Instantiate(playerPrefab);
             playerInstance.layer = LayerMask.NameToLayer("Player");
             
-            return playerInstance.GetComponent<ISpawnable>();
+            return playerInstance;
         }
     }
 }

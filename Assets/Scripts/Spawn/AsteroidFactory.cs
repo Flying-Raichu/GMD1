@@ -6,14 +6,14 @@ namespace Spawn
     {
         [SerializeField] private AsteroidSpawner spawnerPrefab;
         
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject spawnerInstance = Instantiate(spawnerPrefab.gameObject, Vector3.zero, Quaternion.identity);
             AsteroidSpawner spawner = spawnerInstance.GetComponent<AsteroidSpawner>();
             
             spawner.Initialize();
             
-            return spawner;
+            return spawnerInstance;
         }
     }
 }

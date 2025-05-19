@@ -6,14 +6,14 @@ namespace Spawn
     {
         [SerializeField] private EnemyManager managerPrefab;
         
-        public override ISpawnable GetSpawnable()
+        public override GameObject GetSpawnable()
         {
             GameObject spawnerInstance = Instantiate(managerPrefab.gameObject, Vector3.zero, Quaternion.identity);
             EnemyManager spawner = spawnerInstance.GetComponent<EnemyManager>();
             
             spawner.Initialize();
             
-            return spawner;
+            return spawnerInstance;
         }
     }
 }

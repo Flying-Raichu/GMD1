@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8970014383502377528, guid: a6920214e5343c6438dce57133babbe0, type: 3}
   enemyCount: 5
-  spawnRadius: 6
+  objName: EnemyManager
+  waveDelay: 5
