@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f64da844ebd19746ae9ed78a2a46dbf, type: 3}
-  m_Name: SimpleWeapon
+  m_Script: {fileID: 11500000, guid: 6e8c99659f124513b202d35a6b736c04, type: 3}
+  m_Name: ScatterWeapon
   m_EditorClassIdentifier: 
-  damage: 10
-  fireRate: 4
+  fireRate: 3
   projectileSpeed: 15
-  projectilePrefab: {fileID: 3174744999178212022, guid: 4c1d86f115eabde45abf3143d2e36bdb, type: 3}
-  projectileSound: {fileID: 8300000, guid: d571828cbff55f94cbe78884c08a3d88, type: 3}
+  projectilePrefab: {fileID: 3174744999178212022, guid: b4a1e33365c22504595825fc1ec42b06, type: 3}
+  projectileSound: {fileID: 0}

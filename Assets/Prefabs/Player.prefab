@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5370be3d14120d449bf76de760520e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedWeapon: {fileID: 11400000, guid: 3a25474b03ae1aa4e97795c73c11b6fa, type: 2}
+  equippedWeapon: {fileID: 11400000, guid: e5ba08a5d1c93024da68792395e66a68, type: 2}
   firePoint: {fileID: 8533451144232740079}
   soundSource: {fileID: 5612674809232635116}
 --- !u!82 &5612674809232635116

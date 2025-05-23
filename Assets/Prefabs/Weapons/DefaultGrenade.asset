@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f64da844ebd19746ae9ed78a2a46dbf, type: 3}
-  m_Name: SimpleGrenade
+  m_Script: {fileID: 11500000, guid: 7f5dbde0945548afb424d5b7333aa55e, type: 3}
+  m_Name: DefaultGrenade
   m_EditorClassIdentifier: 
   damage: 10
   fireRate: 0.5

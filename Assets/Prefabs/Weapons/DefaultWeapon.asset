@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5dbde0945548afb424d5b7333aa55e, type: 3}
+  m_Name: DefaultWeapon
+  m_EditorClassIdentifier: 
+  damage: 10
+  fireRate: 4
+  projectileSpeed: 15
+  projectilePrefab: {fileID: 3174744999178212022, guid: 4c1d86f115eabde45abf3143d2e36bdb, type: 3}
+  projectileSound: {fileID: 8300000, guid: d571828cbff55f94cbe78884c08a3d88, type: 3}
