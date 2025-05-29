@@ -24,7 +24,7 @@ public class EnemyWeaponHandler : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
 
-        if (timeSinceLastShot >= (1 / equippedWeapon.FireRate))
+        if (timeSinceLastShot >= (1 / equippedWeapon.fireRate))
         {
             Fire();
             timeSinceLastShot = 0f;
@@ -33,24 +33,24 @@ public class EnemyWeaponHandler : MonoBehaviour
 
     private void Fire()
     {
-        if (equippedWeapon.ProjectilePrefab != null && player != null)
+        if (equippedWeapon.projectilePrefab && player)
         {
             var direction = (player.position - firePoint.position).normalized;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             firePoint.rotation = Quaternion.Euler(0, 0, angle);
 
-            GameObject projectile = Instantiate(equippedWeapon.ProjectilePrefab, firePoint.position, firePoint.rotation);
+            GameObject projectile = Instantiate(equippedWeapon.projectilePrefab, firePoint.position, firePoint.rotation);
             Projectile obj = projectile.GetComponent<Projectile>();
             obj.shooter = gameObject;
             
             if (projectile.TryGetComponent<Rigidbody2D>(out var rb))
             {
-                rb.linearVelocity = firePoint.up * equippedWeapon.ProjectileSpeed;
+                rb.linearVelocity = firePoint.up * equippedWeapon.projectileSpeed;
             }
 
-            if (soundSource != null && equippedWeapon.ProjectileSound != null)
+            if (soundSource && equippedWeapon.projectileSound)
             {
-                soundSource.PlayOneShot(equippedWeapon.ProjectileSound);
+                soundSource.PlayOneShot(equippedWeapon.projectileSound);
             }
         }
     }
