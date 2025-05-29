@@ -4,10 +4,13 @@ public class PlayerHealth : MonoBehaviour
 {
     private Player.Shield shieldUI;
     private Player.Health healthUI;
+    [SerializeField] private AudioClip dmgSound;
+    private AudioSource audioSource;
 
     private void Start()
     {
         StartCoroutine(WaitAndAssignBars());
+        audioSource = GetComponent<AudioSource>();
     }
 
     private System.Collections.IEnumerator WaitAndAssignBars()
@@ -28,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
+        PlayWithRandomPitch();
         if (shieldUI != null || healthUI != null)
         {
             if (shieldUI.shield != 0)
@@ -51,5 +55,11 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.LogWarning("Shield/Health UI is not assigned in PlayerHealth!");
         }
+    }
+    
+    public void PlayWithRandomPitch()
+    {
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(dmgSound);
     }
 }

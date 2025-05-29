@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StartStop : MonoBehaviour
 {
+    [SerializeField] private AudioClip btnAudio;
+    
     public void StartGame(String sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -12,16 +14,13 @@ public class StartStop : MonoBehaviour
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
-                Application.Quit();
-        #endif
+        Application.Quit();
     }
     
     public void OnButtonClick(String command)
     {
         StartCoroutine(AnimateButton(command));
+        gameObject.GetComponent<AudioSource>().PlayOneShot(btnAudio);
     }
 
     IEnumerator AnimateButton(String command)
@@ -31,6 +30,8 @@ public class StartStop : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         transform.localScale = originalScale;
 
+        yield return new WaitForSeconds(btnAudio.length); //so audio can play
+        
         if (command == "Start")
         {
             StartGame("Main");

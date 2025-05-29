@@ -297,3 +297,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084e97b9f4d93624a80e2146e12371d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgSound: {fileID: 8300000, guid: 4edbefd5d3594364d9efd11be76eb425, type: 3}

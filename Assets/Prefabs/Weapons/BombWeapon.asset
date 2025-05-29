@@ -15,5 +15,5 @@ MonoBehaviour:
   fireRate: 0.75
   projectileSpeed: 1
   projectilePrefab: {fileID: 3174744999178212022, guid: 08ef7acf824b01943ba58c440547e7d5, type: 3}
-  projectileSound: {fileID: 0}
+  projectileSound: {fileID: 8300000, guid: b036a5a819404e540a933006c21fc67f, type: 3}
   detonationDelay: 3
