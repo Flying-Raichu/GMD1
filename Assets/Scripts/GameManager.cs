@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Player;
 using Spawn;
 using UnityEngine;
 
@@ -23,13 +24,12 @@ public class GameManager : MonoBehaviour
             GameObject spawnable = s.GetSpawnable();
             createdPrefabs.Add(spawnable);
             
-            if (instance.CompareTag("Player"))
-            {
-                playerInstance = instance.gameObject;
-                PauseManager.instance.Initialize(playerInstance);
-            }
-            
             Debug.Log("added component " + spawnable.name);
+        }
+        
+        if (PlayerManager.Instance != null)
+        {
+            PauseManager.Instance.Initialize(PlayerManager.Instance.GetPlayer());
         }
     }
     
@@ -41,15 +41,5 @@ public class GameManager : MonoBehaviour
             if (comp != null) return comp;
         }
         return null;
-    }
-
-    public GameObject GetPlayerInstance()
-    {
-        return playerInstance;
-    }
-
-    void Update()
-    {
-        if (InputManager.instance.PausePressed()) PauseManager.instance.TogglePause();
     }
 }

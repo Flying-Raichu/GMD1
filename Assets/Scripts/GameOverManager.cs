@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,7 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private TMP_Text gameOverScoreText;
     [SerializeField] private LeaderboardManager leaderboardManager;
+    public static event Action OnPlayerDied;
 
     private void Start()
     {
@@ -18,6 +20,7 @@ public class GameOverManager : MonoBehaviour
     public void TriggerGameOver()
     {
         gameOverScreen.SetActive(true);
+        OnPlayerDied?.Invoke();
         
         ScoreManager scoreManager = GameManager.instance.GetComponentInPrefab<ScoreManager>();
         int score = scoreManager.GetScore();

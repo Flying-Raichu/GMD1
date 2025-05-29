@@ -12,16 +12,16 @@ public class PauseMenu : MonoBehaviour
         quitButton.onClick.AddListener(QuitGame);
     }
 
-    public void ResumeGame()
+    private void ResumeGame()
     {
         if (GameManager.instance != null)
         {
             Debug.Log("Resume button clicked!");
-            PauseManager.instance.TogglePause();
+            PauseManager.Instance.TogglePause();
         }
     }
 
-    public void QuitGame()
+    private void QuitGame()
     {
         Debug.Log("Quit button clicked!");
         Application.Quit();

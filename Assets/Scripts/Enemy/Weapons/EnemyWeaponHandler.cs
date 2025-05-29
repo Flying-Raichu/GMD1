@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class EnemyWeaponHandler : MonoBehaviour
@@ -13,9 +14,9 @@ public class EnemyWeaponHandler : MonoBehaviour
     void Start()
     {
         soundSource = GetComponent<AudioSource>();
-        if (GameManager.instance != null && GameManager.instance.GetPlayerInstance() != null)
+        if (GameManager.instance != null && PlayerManager.Instance.GetPlayer() != null)
         {
-            player = GameManager.instance.GetPlayerInstance().transform;
+            player = PlayerManager.Instance.GetPosition();
         }
     }
 
