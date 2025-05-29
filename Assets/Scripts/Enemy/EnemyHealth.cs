@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private int scoreValue = 50;
+    [SerializeField] private int xpValue = 50;
     private float currentHealth;
 
     private void Start()
@@ -24,6 +25,8 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         var scoreManager = FindFirstObjectByType<ScoreManager>();
+        var playerXp = FindFirstObjectByType<PlayerXp>();
+
         if (scoreManager != null)
         {
             scoreManager.AddScore(scoreValue);
@@ -31,6 +34,15 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             Debug.LogWarning("ScoreManager not found!");
+        }
+
+        if (playerXp != null)
+        {
+            playerXp.AddXP(xpValue);
+        }
+        else
+        {
+            Debug.LogWarning("PlayerXp not found!");
         }
 
         Destroy(gameObject);

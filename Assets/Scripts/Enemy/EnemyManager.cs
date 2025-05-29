@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour, ISpawnable
 {
-    [SerializeField] public GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>();
     [SerializeField] private int enemyCount = 5;
     [SerializeField] private string objName = "EnemyManager";
     [SerializeField] private float waveDelay = 5f;
@@ -49,10 +49,14 @@ public class EnemyManager : MonoBehaviour, ISpawnable
         for (int i = 0; i < enemyCount; i++)
         {
             var spawnPosition = GetRandomCornerPosition();
-            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+            GameObject selectedPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+
+            GameObject enemy = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
             enemy.layer = LayerMask.NameToLayer("Enemy");
             activeEnemies.Add(enemy);
         }
+
 
         currentWave++;
         waveInProgress = false;
