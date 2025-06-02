@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f64da844ebd19746ae9ed78a2a46dbf, type: 3}
-  m_Name: SimpleWeaponEnemy
+  m_Script: {fileID: 11500000, guid: 7f5dbde0945548afb424d5b7333aa55e, type: 3}
+  m_Name: DefaultWeaponEnemy
   m_EditorClassIdentifier: 
-  damage: 1
-  fireRate: 3
-  projectileSpeed: 7
-  projectilePrefab: {fileID: 3174744999178212022, guid: d0b0d20ab8ba39f4fa5193b6e47611fc, type: 3}
+  fireRate: 2
+  projectileSpeed: 15
+  projectilePrefab: {fileID: 3174744999178212022, guid: d37d6bfe78f3ac64fa19872db4681078, type: 3}
   projectileSound: {fileID: 8300000, guid: d571828cbff55f94cbe78884c08a3d88, type: 3}

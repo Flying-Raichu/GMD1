@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scatter_pellet_0: -5184845697210982662
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

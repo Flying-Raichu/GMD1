@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1298967166078958699}
   - component: {fileID: 4578838831485462066}
   m_Layer: 8
-  m_Name: MGEnemy 1
+  m_Name: ShotgunEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 04d5b69566da7e546b3c0a67d2ee231a, type: 3}
-  m_Color: {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+  m_Color: {r: 0.77171904, g: 0.28773582, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdef15715d81f74eb2f4fa040ac3316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedWeapon: {fileID: 11400000, guid: 1a52ff5a19d2db641ae78d06015d46a7, type: 2}
+  equippedWeapon: {fileID: 11400000, guid: 31fd66acbaa7f2342af1847a93f28284, type: 2}
   firePoint: {fileID: 5251237649776754379}
   soundSource: {fileID: 0}
 --- !u!114 &4578838831485462066

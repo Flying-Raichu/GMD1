@@ -47,6 +47,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 8970014383502377528, guid: a6920214e5343c6438dce57133babbe0, type: 3}
   - {fileID: 8970014383502377528, guid: 87d77b7cc38b8a1408c165b6811d6966, type: 3}
+  - {fileID: 8970014383502377528, guid: 6de0e23c09ac6f047a65b11d129f6f3b, type: 3}
   enemyCount: 5
   objName: EnemyManager
   waveDelay: 5
