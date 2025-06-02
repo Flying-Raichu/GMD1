@@ -30,6 +30,7 @@ public class WeaponHandler : MonoBehaviour
     {
         if (equippedWeapon.projectilePrefab)
         {
+            equippedWeapon.TuneSound(soundSource);
             equippedWeapon.Fire(firePoint, gameObject, soundSource);
         }
     }

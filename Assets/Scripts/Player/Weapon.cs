@@ -9,4 +9,9 @@ public abstract class Weapon : ScriptableObject
     public AudioClip projectileSound;
 
     public abstract void Fire(Transform firePoint, GameObject shooter, AudioSource soundSource);
+
+    public void TuneSound(AudioSource source)
+    {
+        source.pitch = Random.Range(0.8f, 1.2f);
+    }
 }
