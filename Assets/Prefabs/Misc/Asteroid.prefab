@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debrisPrefab: {fileID: 5726319496299824067, guid: 7aa3697c1d60ccc4699561e2f9ee1338, type: 3}
+  damage: 250
+  health: 100
 --- !u!82 &-3081443695878874571
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
     private float screenWidth, screenHeight;
     [SerializeField] private GameObject debrisPrefab;
+    [SerializeField] private int damage;
+    [SerializeField] private int health;
     void Start()
     {
         Camera cam = Camera.main;
@@ -25,15 +28,31 @@ public class Asteroid : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player") &&
+            collision.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
-            // TODO: damage and velocity change
+            playerHealth.ApplyDamage(damage);
         }
-        
-        BreakAsteroid();
-        Destroy(collision.gameObject);
+
+        else if (collision.gameObject.CompareTag("Enemy") &&
+                 collision.gameObject.TryGetComponent<EnemyHealth>(out var enemyHealth))
+        {
+            enemyHealth.TakeDamage(damage);
+        }
+
+        else
+        {
+            Destroy(collision.gameObject); // for bullets
+            TakeDamage();
+        }
     }
-    
+
+    private void TakeDamage()
+    {
+        health -= 20;
+        if (health <= 0) BreakAsteroid();
+    }
+
     private void BreakAsteroid()
     {
         for (int i = 0; i < 3; i++)

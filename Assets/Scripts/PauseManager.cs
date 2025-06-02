@@ -1,8 +1,9 @@
+using Spawn;
 using UnityEngine;
 
-public class PauseManager : MonoBehaviour
+public class PauseManager : MonoBehaviour, ISpawnable
 {
-    public static PauseManager instance;
+    public static PauseManager Instance { get; private set; }
 
     [SerializeField] private GameObject pauseMenuPrefab;
 
@@ -13,12 +14,22 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
     public void Initialize(GameObject playerInstance)
     {
         player = playerInstance;
+    }
+
+    public void Update()
+    {
+        if (InputManager.instance.PausePressed()) TogglePause();
     }
 
     public void TogglePause()
@@ -70,5 +81,11 @@ public class PauseManager : MonoBehaviour
     {
         if (pauseMenuInstance != null)
             pauseMenuInstance.SetActive(false);
+    }
+
+    public string Name { get; set; }
+    public void Initialize()
+    {
+        gameObject.name = "PauseManager";
     }
 }

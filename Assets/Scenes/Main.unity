@@ -204,6 +204,7 @@ MonoBehaviour:
   - {fileID: 7063497137207637933, guid: 76a6816a350d6624b86e479d3019da00, type: 3}
   - {fileID: -3233912054351699168, guid: 2f6771b5a2244f94c8a3cd3c1ea2d1cf, type: 3}
   - {fileID: 8195770455058691319, guid: e6ec926a1e3560f4d8bae6b668230b6a, type: 3}
+  - {fileID: 8853928662027596466, guid: 0b91b187a43d84641a8f04d1282dc9fd, type: 3}
   playerInstance: {fileID: 2789332978515494102, guid: 5834fb8e6637ab843bc529e40cf4ded9, type: 3}
 --- !u!1 &1492825419
 GameObject:
