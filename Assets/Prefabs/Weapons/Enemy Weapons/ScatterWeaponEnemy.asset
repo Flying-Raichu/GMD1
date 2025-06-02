@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8c99659f124513b202d35a6b736c04, type: 3}
   m_Name: ScatterWeaponEnemy
   m_EditorClassIdentifier: 
-  fireRate: 3
+  fireRate: 1
   projectileSpeed: 15
   projectilePrefab: {fileID: 3174744999178212022, guid: b4a1e33365c22504595825fc1ec42b06, type: 3}
-  projectileSound: {fileID: 0}
+  projectileSound: {fileID: 8300000, guid: 317f2216946350d40a1ced111a9c3487, type: 3}

@@ -8,33 +8,29 @@ A modern Space Invaders-inspired game with roguelite mechanics. Players face wav
 The target audience are retro game enthusiasts, people who enjoy roguelite elements and replayability with some score chasing mixed in.
 
 ## Visual Style
-Retro-futuristic with neon colors, inspired by Tron. The player's ship and enemies change color and design based on chosen weapons and power-ups. The GUI will be sleek to reflect the space theme of the game.
+Retro-futuristic with neon colors, inspired by Tron. The assets and GUI will be sleek to reflect the space theme of the game.
 
 ## End Goal
-Achieve the highest score across various game modes. After each session, players can see how their score was achieved, showcasing chosen power-ups and modules.
+Achieve the highest score. After each session, players can see how their score was achieved.
 
-## Core Mechanics
+## Milestones
+## 1. Core Mechanics
 - Movement: The ship moves with thrust towards the mouse or analog stick, with momentum carried across screen edges.
-- Levels & Power-ups: Randomized power-ups and modules are chosen as the player levels up. Power-ups are re-rollable and obtained with currency received throughout the level.
-- Health System: The player has health, shields (regen or delayed), and armor (damage absorption). Health is lost if shields deplete.
-- Weapons: Various weapons are unlocked, each with unique stats (damage, rate of fire, range, etc.). Some require charging, overheating, or have limited uses.
-### Enemies & Bosses
-- Enemy Types: Melee, ranged, and engineer enemies with varied behaviors.
-- Bosses: Appear at intervals, testing the player's movement, spacing, and endurance. They have unique mechanics and may return as regular enemies in later waves.
+- Health System: The player has health, shields (regen or delayed), and armor (damage absorption). Health is lost if shields deplete, and the player dies when it hits 0.
+- Weapon and shooting: A weapon to damage enemies.
+- Menu Navigation: Playing, pausing and quitting.
 
-## Game Modes
-- Classic: Standard mode with waves and bosses.
-- Endless: After completing Classic, endless waves increase in difficulty.
-- Extreme: High-speed, high-aggression enemies with higher scores.
-- Sandbox: A free mode to experiment with power-ups, modules, and ship builds.
+### 2. Closing the Gameplay Loop
+- Score and Waves: Score increases with time since it's a roguelike, and more enemies spawn once the rest are dead.
+- Game Over Screen and Leaderboard: A place to view the run and either play again or quit.
+- Enemy AI and shooting: So the enemies can shoot back at the player.
 
-## Roadmap for Implementation
-- Foundation: Core mechanics (movement, weapons, enemy AI, shield/health system, score system).
-- Core: Additional weapons, enemies, levelling system, and power-ups.
-- Enhancements: Boss mechanics, armor, and additional game modes.
-
-## Concept art
-![image](https://github.com/user-attachments/assets/0908c6e3-4a56-48a1-95cc-39a3031fd022)
+## 3. Extras (nice to have)
+- XP: Killing enemies grants more score than just elapsed time.
+- Animations: Explosions and UI animations.
+- Assets: Suitable assets for a space game.
+- Weapons: Additional weapon types.
+- Enemies: Additional enemy types.
 
 
 
