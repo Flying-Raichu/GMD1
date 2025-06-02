@@ -15,4 +15,4 @@ MonoBehaviour:
   fireRate: 3
   projectileSpeed: 15
   projectilePrefab: {fileID: 3174744999178212022, guid: b4a1e33365c22504595825fc1ec42b06, type: 3}
-  projectileSound: {fileID: 0}
+  projectileSound: {fileID: 8300000, guid: 317f2216946350d40a1ced111a9c3487, type: 3}
