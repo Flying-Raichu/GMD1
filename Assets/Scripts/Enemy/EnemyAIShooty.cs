@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -12,36 +13,43 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.instance.GetPlayerInstance()!= null)
+        if (PlayerManager.Instance.GetPlayer()!= null)
         {
-            player = GameManager.instance.GetPlayerInstance().transform;
+            player = PlayerManager.Instance.GetPlayer().transform;
         }
     }
 
     void Update()
     {
-        if (player == null) return;
-
+        if (!player) return;
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         Vector2 moveDirection = Vector2.zero;
 
         if (distanceToPlayer > desiredDistance + 0.5f)
         {
-            moveDirection = (player.position - transform.position).normalized; // Move closer
+            moveDirection = (player.position - transform.position).normalized;
         }
         else if (distanceToPlayer < desiredDistance - 0.5f)
         {
-            moveDirection = (transform.position - player.position).normalized; // Move away
+            moveDirection = (transform.position - player.position).normalized;
         }
 
-        // Add separation force from other enemies
         moveDirection += GetSeparationForce();
+        TurnToPlayer();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(moveDirection * speed, ForceMode2D.Force);
 
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
+    }
+
+    private void TurnToPlayer()
+    {
+        Vector2 direction = (player.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 
     Vector2 GetSeparationForce()
@@ -53,7 +61,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (enemy.gameObject != this.gameObject && enemy.CompareTag("Enemy"))
             {
-                Vector2 pushAway = (Vector2)(transform.position - enemy.transform.position).normalized;
+                Vector2 pushAway = (transform.position - enemy.transform.position).normalized;
                 separationForce += pushAway * avoidanceForce;
             }
         }
