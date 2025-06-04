@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,10 +15,38 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private AudioClip btnSound;
     public static event Action OnPlayerDied;
 
+    [SerializeField] private Button newGameButton;
+    [SerializeField] private Button quitButton;
+
     private void Start()
     {
         gameOverScreen.SetActive(false);
     }
+
+    void Update()
+    {
+        if (!gameOverScreen.activeSelf) return;
+
+        if (Gamepad.current != null)
+        {
+            if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                Debug.Log("A pressed – Restarting game");
+                OnNewGameButtonPressed(newGameButton);
+            }
+
+            if (Gamepad.current.buttonEast.wasPressedThisFrame)
+            {
+                Debug.Log("B pressed – Quitting game");
+                var quitBtn = GameObject.Find("QuitButton")?.GetComponent<Button>();
+                if (quitBtn != null)
+                {
+                    OnQuitButtonPressed(quitBtn);
+                }
+            }
+        }
+    }
+
 
     public void TriggerGameOver()
     {

@@ -694,6 +694,8 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 952172713741368895}
   leaderboardManager: {fileID: 7977018209094649017}
   btnSound: {fileID: 8300000, guid: 6cc8b8254a4b5ea4fa5e78502ac2ae3e, type: 3}
+  newGameButton: {fileID: 9076765149598411391}
+  quitButton: {fileID: 3812812898777776420}
 --- !u!82 &-4268006336037889371
 AudioSource:
   m_ObjectHideFlags: 0
