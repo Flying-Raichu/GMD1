@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private SpawnFactory[] factories;
     private List<GameObject> createdPrefabs = new List<GameObject>();
-    public GameObject playerInstance;
 
     void Awake()
     {

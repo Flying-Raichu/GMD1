@@ -38,6 +38,11 @@ public class InputManager : MonoBehaviour
     {
         return input.Default.A.IsPressed();
     }
+    
+    public bool AUp()
+    {
+        return input.Default.A.WasReleasedThisFrame();
+    }
 
     public bool PausePressed() // start button || backspace
     {

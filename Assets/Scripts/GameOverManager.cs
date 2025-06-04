@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +23,9 @@ public class GameOverManager : MonoBehaviour
     public void TriggerGameOver()
     {
         gameOverScreen.SetActive(true);
+        GameObject playButton = gameOverScreen.transform.Find("NewGameButton").gameObject;
+        GameManager.instance.GetComponentInPrefab<EventSystem>().SetSelectedGameObject(playButton);
+        
         OnPlayerDied?.Invoke();
         
         ScoreManager scoreManager = GameManager.instance.GetComponentInPrefab<ScoreManager>();

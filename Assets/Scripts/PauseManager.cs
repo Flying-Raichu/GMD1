@@ -1,5 +1,6 @@
 using Spawn;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseManager : MonoBehaviour, ISpawnable
 {
@@ -73,6 +74,9 @@ public class PauseManager : MonoBehaviour, ISpawnable
         {
             pauseMenuInstance = Instantiate(pauseMenuPrefab);
             pauseMenuInstance.GetComponent<Canvas>().worldCamera = Camera.main;
+            
+            GameObject resumeButton = pauseMenuInstance.transform.Find("PauseMenuPanel/ResumeButton").gameObject;
+            GameManager.instance.GetComponentInPrefab<EventSystem>().SetSelectedGameObject(resumeButton);
         }
         pauseMenuInstance.SetActive(true);
     }

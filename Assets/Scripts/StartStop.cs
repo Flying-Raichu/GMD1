@@ -16,7 +16,7 @@ public class StartStop : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     public void OnButtonClick(String command)
     {
         StartCoroutine(AnimateButton(command));

@@ -197,15 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - {fileID: 690751376194854502, guid: a99a540d726f3fc4498966377e60c01f, type: 3}
   - {fileID: 1668750915328651585, guid: e087bf52f2829934f8c7c6c62a3e8c53, type: 3}
+  - {fileID: 690751376194854502, guid: a99a540d726f3fc4498966377e60c01f, type: 3}
   - {fileID: 6219563130505447527, guid: 896b8b26a4384bd418cf5638b89fa00d, type: 3}
   - {fileID: 7127478470906550304, guid: 182f57dac087b9d4eba71ea8924cdac5, type: 3}
   - {fileID: 7063497137207637933, guid: 76a6816a350d6624b86e479d3019da00, type: 3}
   - {fileID: -3233912054351699168, guid: 2f6771b5a2244f94c8a3cd3c1ea2d1cf, type: 3}
   - {fileID: 8195770455058691319, guid: e6ec926a1e3560f4d8bae6b668230b6a, type: 3}
   - {fileID: 8853928662027596466, guid: 0b91b187a43d84641a8f04d1282dc9fd, type: 3}
-  playerInstance: {fileID: 2789332978515494102, guid: 5834fb8e6637ab843bc529e40cf4ded9, type: 3}
 --- !u!1 &1492825419
 GameObject:
   m_ObjectHideFlags: 0
