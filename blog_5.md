@@ -14,3 +14,4 @@ More stuff:
     - The player's score kept increasing after a game over. We had to add an event listener to stop the coroutine on death (shown in ScoreManager.cs)
     - Since most of the development was done with a KB+M (but still had the mapping for controller), we did a controller test and adjusted the event system to work with our GUI buttons.
 - Extra enemy types.
+    - Two new enemy types were created, a grenade enemy that slowly fires projectiles that do hefty damage, as well as a scatter shot enemy that fires projectiles in a shotgun-like pattern
