@@ -47,7 +47,6 @@ public class GameOverManager : MonoBehaviour
         }
     }
 
-
     public void TriggerGameOver()
     {
         gameOverScreen.SetActive(true);
