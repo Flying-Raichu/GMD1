@@ -10,10 +10,15 @@ https://youtu.be/3-fxrnUHzp0
 [Lyubomir's Blog](<Lyubomir - Blog post 1.md>)
 
 [Blog 2](<blog_2 - Game design document.md>)
+
 [Blog 3](<blog_3.md>)
+
 [Blog 4](<blog_4.md>)
+
 [Blog 5](<blog_5.md>)
+
 [Blog 6](<blog_6.md>)
+
 
 ## Game design document
 [Game design document](<Game design document.md>)
