@@ -35,3 +35,7 @@ https://youtu.be/3-fxrnUHzp0
 
 # WebGL build
 https://flying-raichu.github.io/GMD1/
+
+# Control scheme
+- For MnK - Mouse controls the ship, left click to thrust, space to fire
+- For Controller - Left stick controls direction, A to thrust, right bumper to fire
