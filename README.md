@@ -31,3 +31,7 @@ https://youtu.be/3-fxrnUHzp0
 - Main music - https://pixabay.com/music/ambient-nebula-space-clouds-9387/
 - Start menu music - https://pixabay.com/music/ambient-space-dna-259198/
 - Concept art - https://github.com/user-attachments/assets/0908c6e3-4a56-48a1-95cc-39a3031fd022
+
+
+# WebGL build
+https://flying-raichu.github.io/GMD1/
