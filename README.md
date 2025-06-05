@@ -12,4 +12,11 @@ https://youtu.be/3-fxrnUHzp0
 ## Game design document
 [Game design document](<Game design document.md>)
 # Bibliography of used resources
-Optionally, a link to a playable WebGL build of your game, hosted on GitHub Pages
+- Inspiration for shield implementation - https://www.youtube.com/watch?v=0tDPxNB2JNs
+- Factory pattern demo asset that inspired our implementation - https://assetstore.unity.com/packages/essentials/tutorial-projects/level-up-your-code-with-design-patterns-and-solid-289616
+- Space background source - https://4kwallpapers.com/space/stars-galaxy-10307.html
+- Explosion Sound Effect (+ ammo fire) Source - https://opengameart.org/content/boom-pack-1
+- Button Click Sound Effect Source - https://opengameart.org/content/4-sci-fi-menu-sounds
+- Main music - https://pixabay.com/music/ambient-nebula-space-clouds-9387/
+- Start menu music - https://pixabay.com/music/ambient-space-dna-259198/
+- Concept art - https://github.com/user-attachments/assets/0908c6e3-4a56-48a1-95cc-39a3031fd022
